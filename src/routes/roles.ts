@@ -1,10 +1,12 @@
 import { Router } from "express";
 import prisma from "../prismaClient";
 import { listRoles, createRole } from "../controller/roles";
+import { authorization } from "../middlewares/authorization";
+import { PERMISSIONS } from "../constants";
 
 const router = Router();
 
-router.get('/roles', listRoles)
-router.post('/roles', createRole)
+router.get('/roles', authorization([PERMISSIONS.ROLES.READ]), listRoles)
+router.post('/roles', authorization([PERMISSIONS.ROLES.EDIT]), createRole)
 
 export default router
