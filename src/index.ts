@@ -3,6 +3,8 @@ import { authentication } from './middlewares/authentication';
 import rolesRouter from './routes/roles';
 import usersRouter from './routes/users';
 import authRouter from './routes/auth';
+import productsRouter from './routes/products';
+import ordersRouter from './routes/orders';
 import bodyParser from 'body-parser';
 
 const app = express();
@@ -13,6 +15,8 @@ app.use(authentication)
 
 app.use(usersRouter)
 app.use(rolesRouter)
+app.use(productsRouter)
+app.use(ordersRouter)
 
 
 app.get('/', (req, res) => {

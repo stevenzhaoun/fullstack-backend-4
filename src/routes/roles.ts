@@ -1,5 +1,4 @@
 import { Router } from "express";
-import prisma from "../prismaClient";
 import { listRoles, createRole } from "../controller/roles";
 import { authorization } from "../middlewares/authorization";
 import { PERMISSIONS } from "../constants";
