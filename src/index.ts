@@ -13,14 +13,16 @@ const app = express();
 app.use(cors())
 app.use(bodyParser.json())
 
-app.get('/', (req, res) => {
-    console.log('Hello World');
-    res.send('Hello world!!!')
-})
 
 app.use(authRouter)
 
 app.use(authentication)
+
+
+app.get('/', (req, res) => {
+    console.log('Hello World');
+    res.send('Hello world!!!')
+})
 
 app.use(usersRouter)
 app.use(rolesRouter)
