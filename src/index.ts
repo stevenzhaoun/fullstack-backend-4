@@ -7,6 +7,7 @@ import productsRouter from './routes/products';
 import ordersRouter from './routes/orders';
 import bodyParser from 'body-parser';
 import cors from 'cors';
+const port = process.env.PORT || 8888 
 
 const app = express();
 app.use(cors())
@@ -26,6 +27,6 @@ app.get('/', (req, res) => {
     res.send('Hello world!!!')
 })
 
-app.listen(8888, () => {
-    console.log('server is running on port 8888')
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
 })
