@@ -31,6 +31,9 @@ export const listUsers = async (req: Request, res: Response) => {
     const users = await prisma.user.findMany({
         include: {
             role: true
+        },
+        orderBy: {
+            id: 'asc'
         }
     })
     res.json(users)
