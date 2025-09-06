@@ -12,6 +12,12 @@ const port = process.env.PORT || 8888
 const app = express();
 app.use(cors())
 app.use(bodyParser.json())
+
+app.get('/', (req, res) => {
+    console.log('Hello World');
+    res.send('Hello world!!!')
+})
+
 app.use(authRouter)
 
 app.use(authentication)
@@ -21,11 +27,6 @@ app.use(rolesRouter)
 app.use(productsRouter)
 app.use(ordersRouter)
 
-
-app.get('/', (req, res) => {
-    console.log('Hello World');
-    res.send('Hello world!!!')
-})
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
